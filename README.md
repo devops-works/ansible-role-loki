@@ -1,15 +1,18 @@
 Role for managing [loki](https://github.com/grafana/loki)
 
-For possible settings and format look at [example configs](https://github.com/grafana/loki/blob/master/docs/configuration/examples.md)  
+For possible settings and format look at [example configs](https://github.com/grafana/loki/blob/master/docs/configuration/examples.md) 
+ 
 This role only installs loki. For promtail, see [this role](https://github.com/patrickjahns/ansible-role-promtail)
 
 ## Compatibility
-This role is compatible with any modern systemd-based distro.  
+
+This role is compatible with any modern systemd-based distro.
 
 ## Role Variables
+
 | Variable name                   | Default value | Description                                        |
 | ------------------------------- | ------------- | -------------------------------------------------- |
-| loki_version                    | `2.3.0`       | version of loki                                    |
+| loki_version                    | `2.7.3`       | version of loki                                    |
 | loki_system_user                | `loki`        | user for running loki                              |
 | loki_system_group               | `loki`        | group for running loki                             |
 | loki_server_http_listen_port    | `3100`        | listen port for loki                               |
@@ -29,12 +32,21 @@ This role is compatible with any modern systemd-based distro.
 | loki_alert_rules                | `[]`          | YAML with alerts
 
 ## Settings
-To configure loki with role you just need to supply YAML to each corresponding block. See example configs from loki github repo for examples.   
-Default settings are provided to get "proof-of-concept" installation up and running, you can see them in defaults/main.yml  
-Please note that by default loki writes to /tmp/, you will need to adjust loki_storage_config in case you want S3/GCS/other supported storage  
+
+To configure loki with role you just need to supply YAML to each corresponding
+block. See example configs from loki github repo for examples.   
+Default settings are provided to get "proof-of-concept" installation up and
+running, you can see them in defaults/main.yml  
+Please note that by default loki writes to /tmp/, you will need to adjust
+loki_storage_config in case you want S3/GCS/other supported storage  
 
 ## Alerts (WIP, not working ATM)
-To use alerts you will need to use loki's ruler. Default setting enables it, with rules stored in /tmp with empty ruleset. Alerts follows prometheus format. Sample alert:
+
+To use alerts you will need to use loki's ruler. Default setting enables it,
+with rules stored in /tmp with empty ruleset. Alerts follows prometheus format.
+
+Sample alert:
+
 ```yaml
 loki_alert_rules:
   groups:

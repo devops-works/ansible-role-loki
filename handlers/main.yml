@@ -1,4 +1,4 @@
-- name: restart loki
+- name: Restart loki
   systemd:
     daemon_reload: true
     name: loki
