@@ -1,5 +1,5 @@
 ---
-- include_tasks: 
+- include_tasks:
     file: install.yml
     apply:
       tags:
@@ -7,9 +7,9 @@
         - loki:install
         - install
   tags:
-    - loki
+    - always
 
-- include_tasks: 
+- include_tasks:
     file: config.yml
     apply:
       tags:
@@ -17,4 +17,4 @@
         - loki:config
         - config
   tags:
-    - loki
+    - always
